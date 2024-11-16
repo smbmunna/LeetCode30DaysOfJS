@@ -8,18 +8,26 @@ var createCounter = function(init) {
         return n+=1; 
     }
     function decrement(){
-       return n-+1; 
+       return n-=1; 
     }
     function reset(){
        return n=init; 
     }
 
-    return{increment, decrement, reset}; 
+    function getValue(){
+        return n ; 
+    }
+
+    return{increment, decrement, reset, getValue}; 
 };
 
-/**
- * const counter = createCounter(5)
- * counter.increment(); // 6
- * counter.reset(); // 5
- * counter.decrement(); // 4
- */
+
+ const counter = createCounter(-5)
+ counter.decrement(); // 6
+ console.log(counter.getValue()); 
+ counter.decrement(); // 5
+ console.log(counter.getValue()); 
+ counter.decrement(); // 4
+ console.log(counter.getValue()); 
+ counter.decrement(); // 4
+ console.log(counter.getValue()); 
